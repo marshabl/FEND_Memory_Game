@@ -52,7 +52,7 @@
    matchedCards = []; // restart matchedCards list so game knows when you have won
    toggleModalOff(); // turn off modal
    clearInterval(clockKeeper); // reset clock for new game
-   document.querySelector('.clock').innerHTML = '0:00'
+   document.querySelector('.clock').innerHTML = '0:00';
    newList = shuffle(cardList); // shuffle cardList
    document.querySelector('.moves').innerHTML = 0; // reset moves to 0
    moveCounter = 0;
@@ -114,7 +114,7 @@ function shuffle(array) {
 
  // change card to empty symbol
  function removeSymbol(card) {
-   card.classList.remove('open', 'show')
+   card.classList.remove('open', 'show');
  }
 
  // change card to match class
