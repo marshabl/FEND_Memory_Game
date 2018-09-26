@@ -18,14 +18,41 @@
  let openCards = []; //store open cards here
  let matchedCards = []; //store matched cards here
  let moveCounter = 0; // start moves at 0
- // let clockKeeper; // initialize clockKeeper
+ let clockKeeper; // initialize clockKeeper
+
+ // add 0 to single digits (eg. 9 becomes 09)
+ function addZero(value) {
+   if (value < 10) {
+     return value = '0' + value;
+   } else {
+     return value;
+   }
+ }
+
+ // creates a timer
+ function startClock() {
+   t = 0;
+   clockKeeper = setInterval(function() {
+     t++;
+     let seconds = Math.floor(t % 60);
+     let minutes = Math.floor(t / 60);
+     document.querySelector('.clock').innerHTML = minutes + ':' + addZero(seconds);
+   }, 1000);
+ }
+
+ // Start clock after first click
+ document.addEventListener('click', function () {
+   if (moveCounter === 1) {
+     startClock();
+   }
+ })
 
 
  function replayGame() {
    matchedCards = []; // restart matchedCards list so game knows when you have won
    // toggleModalOff(); // turn off modal
-   // clearInterval(clockKeeper); // reset clock for new game
-   // document.querySelector('.clock').innerHTML = '0:00'
+   clearInterval(clockKeeper); // reset clock for new game
+   document.querySelector('.clock').innerHTML = '0:00'
    newList = shuffle(cardList); // shuffle cardList
    document.querySelector('.moves').innerHTML = 0; // reset moves to 0
    moveCounter = 0;
@@ -117,7 +144,7 @@ function shuffle(array) {
            }
            openCards = [];
            if (matchedCards.length === 16) {
-             // clearInterval(clockKeeper);
+             clearInterval(clockKeeper);
              // toggleModalOn();
              // addStats();
            }
