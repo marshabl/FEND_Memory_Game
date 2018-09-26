@@ -50,7 +50,7 @@
 
  function replayGame() {
    matchedCards = []; // restart matchedCards list so game knows when you have won
-   // toggleModalOff(); // turn off modal
+   toggleModalOff(); // turn off modal
    clearInterval(clockKeeper); // reset clock for new game
    document.querySelector('.clock').innerHTML = '0:00'
    newList = shuffle(cardList); // shuffle cardList
@@ -131,6 +131,17 @@ function shuffle(array) {
    }
  }
 
+ // turns the modal on
+ function toggleModalOn() {
+   const modal = document.querySelector('.modal-background');
+   modal.classList.remove('hide');
+ }
+
+ // turns the modal off
+ function toggleModalOff() {
+   const modal = document.querySelector('.modal-background');
+   modal.classList.add('hide');
+ }
 
  // main click event flips cards and matches correct ones
  for (const card of allCards) {
@@ -153,7 +164,7 @@ function shuffle(array) {
            openCards = [];
            if (matchedCards.length === 16) {
              clearInterval(clockKeeper);
-             // toggleModalOn();
+             toggleModalOn();
              // addStats();
            }
          }
