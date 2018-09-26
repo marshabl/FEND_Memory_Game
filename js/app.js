@@ -2,6 +2,14 @@
  * Create a list that holds all of your cards
  */
 
+ const allCards = document.querySelectorAll('.card');
+ // const shuffleButton = document.querySelector('.restart');
+ // const replayButton = document.querySelector('.modal-buttons');
+ let openCards = []; //store open cards here
+ let matchedCards = []; //store matched cards here
+ // let moveCounter = 0; // start moves at 0
+ // let clockKeeper; // initialize clockKeeper
+
 
 /*
  * Display the cards on the page
@@ -36,3 +44,63 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ // flip cards to show symbol
+ function showSymbol(card) {
+   card.classList.add('open', 'show');
+ }
+
+ // change card to empty symbol
+ function removeSymbol(card) {
+   card.classList.remove('open', 'show')
+ }
+
+ // change card to match class
+ function matchSymbol(card) {
+   card.classList.add('match');
+ }
+
+ // store cards in openCards list
+ function appendCardList (card) {
+   openCards.push(card);
+ }
+
+
+ // main click event flips cards and matches correct ones
+ for (const card of allCards) {
+   card.addEventListener('click', function () {
+     if (!card.classList.contains('open', 'show') && (openCards.length < 2)) {
+       moveCounter += 1;
+       document.querySelector('.moves').innerHTML = moveCounter;
+       showSymbol(card);
+       appendCardList(card);
+       if (openCards.length < 2) {}
+       else if (openCards.length = 1) {
+         appendCardList(card);
+         const firstCard = openCards[0].querySelector('i').className;
+         const secondCard = card.querySelector('i').className;
+         if (firstCard === secondCard) {
+           for (const card of openCards) {
+             matchSymbol(card);
+             matchedCards.push(card);
+           }
+           openCards = [];
+           if (matchedCards.length === 16) {
+             // clearInterval(clockKeeper);
+             // toggleModalOn();
+             // addStats();
+           }
+         }
+         else {
+           setTimeout(function() {
+             for (const card of openCards) {
+               removeSymbol(card);
+             }
+             openCards = [];
+           }, 1200)
+         }
+       }
+     }
+     // subtractStars(moveCounter);
+   })
+ }
