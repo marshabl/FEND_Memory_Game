@@ -123,6 +123,14 @@ function shuffle(array) {
    openCards.push(card);
  }
 
+ // subtracts starts based on move count
+ function subtractStars(moves) {
+   if (moves === 26 || moves === 34 || moves === 42) {
+     const elem = document.querySelector('.stars li');
+     elem.parentNode.removeChild(elem);
+   }
+ }
+
 
  // main click event flips cards and matches correct ones
  for (const card of allCards) {
@@ -159,6 +167,6 @@ function shuffle(array) {
          }
        }
      }
-     // subtractStars(moveCounter);
+     subtractStars(moveCounter);
    })
  }
