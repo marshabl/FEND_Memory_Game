@@ -70,8 +70,8 @@ function shuffle(array) {
  for (const card of allCards) {
    card.addEventListener('click', function () {
      if (!card.classList.contains('open', 'show') && (openCards.length < 2)) {
-       moveCounter += 1;
-       document.querySelector('.moves').innerHTML = moveCounter;
+       // moveCounter += 1;
+       // document.querySelector('.moves').innerHTML = moveCounter;
        showSymbol(card);
        appendCardList(card);
        if (openCards.length < 2) {}
