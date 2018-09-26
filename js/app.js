@@ -2,14 +2,45 @@
  * Create a list that holds all of your cards
  */
 
+ cardList = ['fa fa-diamond', 'fa fa-diamond',
+             'fa fa-paper-plane-o', 'fa fa-paper-plane-o',
+             'fa fa-anchor', 'fa fa-anchor',
+             'fa fa-bolt', 'fa fa-bolt',
+             'fa fa-cube', 'fa fa-cube',
+             'fa fa-leaf', 'fa fa-leaf',
+             'fa fa-bicycle', 'fa fa-bicycle',
+             'fa fa-bomb', 'fa fa-bomb'
+           ]
+
  const allCards = document.querySelectorAll('.card');
- // const shuffleButton = document.querySelector('.restart');
+ const shuffleButton = document.querySelector('.restart');
  // const replayButton = document.querySelector('.modal-buttons');
  let openCards = []; //store open cards here
  let matchedCards = []; //store matched cards here
- // let moveCounter = 0; // start moves at 0
+ let moveCounter = 0; // start moves at 0
  // let clockKeeper; // initialize clockKeeper
 
+
+ function replayGame() {
+   matchedCards = []; // restart matchedCards list so game knows when you have won
+   // toggleModalOff(); // turn off modal
+   // clearInterval(clockKeeper); // reset clock for new game
+   // document.querySelector('.clock').innerHTML = '0:00'
+   newList = shuffle(cardList); // shuffle cardList
+   // document.querySelector('.moves').innerHTML = 0; // reset moves to 0
+   moveCounter = 0;
+   i = 0;
+   for (const card of allCards) {
+     card.classList.remove('open', 'show', 'match'); // reset CSS so all cards are face down
+     card.querySelector('i').className = newList[i]; // change html to new shuffled list of cards
+     i += 1;
+   }
+ }
+
+ // clicking the restart button restarts the game
+ shuffleButton.addEventListener('click', function () {
+   replayGame();
+ });
 
 /*
  * Display the cards on the page
