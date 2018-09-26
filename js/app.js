@@ -143,6 +143,14 @@ function shuffle(array) {
    modal.classList.add('hide');
  }
 
+ // adds statistics to the modal
+ function addStats() {
+   document.querySelector('.clockTime').innerHTML = document.querySelector('.clock').innerHTML;
+   document.querySelector('.moveCounter').innerHTML = document.querySelector('.moves').innerHTML;
+   document.querySelector('.starCounter').innerHTML = document.getElementsByClassName('fa fa-star').length;
+ }
+
+
  // main click event flips cards and matches correct ones
  for (const card of allCards) {
    card.addEventListener('click', function () {
@@ -165,7 +173,7 @@ function shuffle(array) {
            if (matchedCards.length === 16) {
              clearInterval(clockKeeper);
              toggleModalOn();
-             // addStats();
+             addStats();
            }
          }
          else {
