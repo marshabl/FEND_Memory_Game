@@ -14,7 +14,7 @@
 
  const allCards = document.querySelectorAll('.card');
  const shuffleButton = document.querySelector('.restart');
- // const replayButton = document.querySelector('.modal-buttons');
+ const replayButton = document.querySelector('.modal-buttons');
  let openCards = []; //store open cards here
  let matchedCards = []; //store matched cards here
  let moveCounter = 0; // start moves at 0
@@ -66,6 +66,10 @@
 
  // clicking the restart button restarts the game
  shuffleButton.addEventListener('click', function () {
+   replayGame();
+ });
+
+ replayButton.addEventListener('click', function () {
    replayGame();
  });
 
@@ -156,6 +160,7 @@ function shuffle(array) {
    card.addEventListener('click', function () {
      if (!card.classList.contains('open', 'show') && (openCards.length < 2)) {
        moveCounter += 1;
+       subtractStars(moveCounter);
        document.querySelector('.moves').innerHTML = moveCounter;
        showSymbol(card);
        appendCardList(card);
@@ -186,6 +191,5 @@ function shuffle(array) {
          }
        }
      }
-     subtractStars(moveCounter);
    })
  }
