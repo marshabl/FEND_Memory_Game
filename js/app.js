@@ -27,7 +27,7 @@
    // clearInterval(clockKeeper); // reset clock for new game
    // document.querySelector('.clock').innerHTML = '0:00'
    newList = shuffle(cardList); // shuffle cardList
-   // document.querySelector('.moves').innerHTML = 0; // reset moves to 0
+   document.querySelector('.moves').innerHTML = 0; // reset moves to 0
    moveCounter = 0;
    i = 0;
    for (const card of allCards) {
@@ -101,8 +101,8 @@ function shuffle(array) {
  for (const card of allCards) {
    card.addEventListener('click', function () {
      if (!card.classList.contains('open', 'show') && (openCards.length < 2)) {
-       // moveCounter += 1;
-       // document.querySelector('.moves').innerHTML = moveCounter;
+       moveCounter += 1;
+       document.querySelector('.moves').innerHTML = moveCounter;
        showSymbol(card);
        appendCardList(card);
        if (openCards.length < 2) {}
