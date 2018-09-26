@@ -107,3 +107,84 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.modal-background {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+
+.modal {
+  position: relative;
+  width: 500px;
+  background: white;
+  border-radius: 10px;
+}
+
+.modal-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  background: #02ccba;
+  height: 100px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.modal-stats {
+  display: flex;
+  flex-wrap: wrap;
+  height: 250px;
+  font-size: 24px;
+  margin: 10px;
+  background: #aa7ecd;
+  border-radius: 10px;
+}
+
+.modal-stats h2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-stats .stats-moves,
+.modal-stats .stats-time,
+.modal-stats .stats-stars,
+.clockTime,
+.moveCounter,
+.starCounter {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+
+button {
+  height: 100px;
+  width: 100%;
+  background: gray;
+  margin: 10px;
+  margin-top: 0;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+button:hover {
+  background: white;
+  font: black;
+}
+
+.hide {
+  display: none;
+}
