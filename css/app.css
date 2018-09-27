@@ -196,11 +196,26 @@ button:hover {
   .deck {
       width: 500px;
       min-height: 400px;
+      padding: 30px;
   }
 
   .deck .card {
       height: 90px;
       width: 90px;
-      margin-top: 15px;
+      margin-top: 12px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .deck {
+      width: 350px;
+      min-height: 300px;
+      padding: 20px;
+  }
+
+  .deck .card {
+      height: 65px;
+      width: 65px;
+      margin-top: 10px;
   }
 }
