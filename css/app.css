@@ -26,6 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    max-width: 100%;
 }
 
 h1 {
@@ -187,4 +188,19 @@ button:hover {
 
 .hide {
   display: none;
+}
+
+/* responsive */
+
+@media screen and (max-width: 700px) {
+  .deck {
+      width: 500px;
+      min-height: 400px;
+  }
+
+  .deck .card {
+      height: 90px;
+      width: 90px;
+      margin-top: 15px;
+  }
 }
